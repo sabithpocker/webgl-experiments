@@ -1,0 +1,29 @@
+{
+  "name": "webgl-experiments",
+  "version": "0.0.0",
+  "description": "Experimenting WebGL technology",
+  "main": "index.html",
+  "scripts": {
+    "test": "test",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --inline --content-base dist/",
+    "build": "./node_modules/.bin/webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabithpocker/webgl-experiments.git"
+  },
+  "keywords": [
+    "webgl",
+    "shader"
+  ],
+  "author": "Sabith Pocker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sabithpocker/webgl-experiments/issues"
+  },
+  "homepage": "https://github.com/sabithpocker/webgl-experiments#readme",
+  "devDependencies": {
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
