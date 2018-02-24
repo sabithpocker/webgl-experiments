@@ -17,5 +17,4 @@ export const vertexShaderSource = `
 
     v_color = gl_Position * 0.5 + 0.5;
   }
-  `;
-
+  `

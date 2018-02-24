@@ -1,3 +1,3 @@
-export function getDisplay(){
-	return document.getElementById('display');
+export function getDisplay () {
+  return document.getElementById('display')
 }

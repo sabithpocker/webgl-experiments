@@ -1,3 +1,3 @@
-export function linkShaderProgram( context, program){
-	context.linkProgram( program );
+export function linkShaderProgram (context, program) {
+  context.linkProgram(program)
 }

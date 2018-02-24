@@ -9,4 +9,4 @@ export const fragmentShaderSource = `
     // is responsible for setting
     gl_FragColor = v_color; // return redish-purple
   }
-  `;
+  `
