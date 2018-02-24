@@ -1,27 +1,24 @@
 import { resize } from './resize'
+import { clearCanvas } from './clear-canvas'
 // Drawing utils
 import { drawTriangle } from './draw-triangle'
 
 // WebGL Context
 import { gl } from './gl.js'
 
-import { program, resolutionUniformLocation, colorUniformLocation, positionAttributeLocation, positionBuffer } from './shaders/simple-program'
+import { simpleShader, initSimpleProgram } from './shaders/simple-program'
 
 // RENDERING
 resize(gl)
-gl.viewport(0, 0, gl.canvas.width, gl.canvas.height)
-// Clear the canvas
-gl.clearColor(0, 0, 0, 0)
-gl.clear(gl.COLOR_BUFFER_BIT)
+clearCanvas()
 
-gl.useProgram(program)
+// Use the simple webgl shader program to draw the triangle.
+initSimpleProgram()
 
-// set the resolution
-gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height)
-// Set a random color.
-gl.uniform4f(colorUniformLocation, 1, 0, 0, 1)
-gl.enableVertexAttribArray(positionAttributeLocation)
-// Bind the position buffer.
-gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
+const points = [
+  10, 10,
+  3200, 10,
+  1600, 1800
+]
 
-drawTriangle(10, 10, 2700, 10, 1000, 800)
+drawTriangle(simpleShader, ...points)

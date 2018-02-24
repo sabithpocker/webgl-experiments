@@ -10,7 +10,6 @@ import { gl } from './gl'
  * @param {*} y3 y of point 3
  */
 export function setTriangle (x1, y1, x2, y2, x3, y3) {
-  console.log(gl, 'here')
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
     x1, y1,
     x2, y2,
