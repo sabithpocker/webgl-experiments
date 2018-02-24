@@ -7,6 +7,7 @@ import { drawTriangle } from './draw-triangle'
 import { gl } from './gl.js'
 
 import { simpleShader, initSimpleProgram } from './shaders/simple-program'
+import { drawRectangle } from './draw-rectangle';
 
 // RENDERING
 resize(gl)
@@ -17,8 +18,9 @@ initSimpleProgram()
 
 const points = [
   10, 10,
-  3200, 10,
-  1600, 1800
+  200, 10,
+  600, 800
 ]
 
 drawTriangle(simpleShader, ...points)
+drawRectangle(simpleShader, 10, 10, 1000, 1000)

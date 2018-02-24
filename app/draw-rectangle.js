@@ -1,6 +1,6 @@
 import { gl } from './gl'
-import { renderTriangle } from './render-triangle'
-
+import { renderRectangle } from './render-rectangle'
+import { setRectangle } from './set-rectangle'
 /**
  *
  * @param {*} x1 x of point 1
@@ -10,13 +10,8 @@ import { renderTriangle } from './render-triangle'
  * @param {*} x3 x of point 3
  * @param {*} y3 y of point 3
  */
-export function drawTriangle (shader, x1, y1, x2, y2, x3, y3) {
-  // setRectangle(gl,600,600,100,100);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-    x1, y1,
-    x2, y2,
-    x3, y3
-  ]), gl.STATIC_DRAW)
+export function drawRectangle (shader, x, y, width, height) {
+  setRectangle(x, y, width, height)
 
   // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
   const size = 2 // 2 components per iteration
@@ -26,5 +21,5 @@ export function drawTriangle (shader, x1, y1, x2, y2, x3, y3) {
   const offset = 0 // start at the beginning of the buffer
   gl.vertexAttribPointer(shader.positionAttributeLocation, size, type, normalize, stride, offset)
 
-  renderTriangle(gl)
+  renderRectangle(gl)
 }

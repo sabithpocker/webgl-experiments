@@ -1,4 +1,6 @@
-export function setRectangle (gl, x, y, width, height) {
+import { gl } from './gl'
+
+export function setRectangle (x, y, width, height) {
   var x1 = x
   var x2 = x + width
   var y1 = y
