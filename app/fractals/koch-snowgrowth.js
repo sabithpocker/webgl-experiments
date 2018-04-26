@@ -10,7 +10,7 @@ import { simpleShader, initSimpleProgram } from '../shaders/simple-program'
 import { getChildLinePoints } from './utils/get-child-line-points'
 import { getEquilateralLines } from './utils/get-equilateral-lines'
 
-export function KochSnowinverse (growth = false) {
+export function KochSnowgrowth () {
   resize(gl)
   clearCanvas([0, 0, 0, 0])
   initSimpleProgram()
@@ -18,9 +18,8 @@ export function KochSnowinverse (growth = false) {
   const height = gl.canvas.height
   const center = { x: width / 2, y: height / 2 }
   const side = Math.min(width, height) * (2 / 3)
-  const points = getEquilateralLines(center, side, true)
-  const childPoints = growth ? [0, 1, 2, 3, 4].reduce((a, i) => [...a, ...points.reduce((acc, point) => [...acc, ...getChildLinePoints(point, i)], [])], [])
-    : points.reduce((acc, point) => [...acc, ...getChildLinePoints(point, 4)], [])
+  const points = getEquilateralLines(center, side)
+  const childPoints = [0, 1, 2, 3, 4].reduce((a, i) => [...a, ...points.reduce((acc, point) => [...acc, ...getChildLinePoints(point, i)], [])], [])
   console.log(childPoints)
   childPoints.forEach(x => drawLine(simpleShader, ...x))
 }
