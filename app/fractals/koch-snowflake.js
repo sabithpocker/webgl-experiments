@@ -8,19 +8,18 @@ import { gl } from '../gl.js'
 
 import { simpleShader, initSimpleProgram } from '../shaders/simple-program'
 import { getChildLinePoints } from './utils/get-child-line-points'
+import { getEquilateralLines } from './utils/get-equilateral-lines'
 
-export function KochCode () {
+export function KochSnowflake () {
   resize(gl)
   clearCanvas([0, 0, 0, 0])
   initSimpleProgram()
   const width = gl.canvas.width
-  const margin = 100
-
-  const points = [
-    0 + margin, 0 + margin,
-    width - margin, 0 + margin
-  ]
-  const childPoints = getChildLinePoints(points, 4)
+  const height = gl.canvas.height
+  const center = { x: width / 2, y: height / 2 }
+  const side = Math.min(width, height) * (2 / 3)
+  const points = getEquilateralLines(center, side)
+  const childPoints = points.reduce((acc, point) => [...acc, ...getChildLinePoints(point, 4)], [])
   console.log(childPoints)
-  childPoints.forEach(points => drawLine(simpleShader, ...points))
+  childPoints.forEach(x => drawLine(simpleShader, ...x))
 }

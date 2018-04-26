@@ -20,6 +20,6 @@ export function Sierpinski () {
   const altitude = (Math.sqrt(3) / 2) * side
   const center = { x: width / 2, y: altitude / 2 }
   const points = getEquilateralPoints(center, side)
-  const childPoints = getChildTrianglePoints(points, 6)
+  const childPoints = getChildTrianglePoints(points, 7)
   childPoints.forEach(points => drawTriangle(simpleShader, ...points))
 }
