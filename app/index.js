@@ -1,26 +1,10 @@
-import { resize } from './resize'
-import { clearCanvas } from './clear-canvas'
-// Drawing utils
-import { drawTriangle } from './draw-triangle'
+import { Welcome } from './welcome.js'
+import { FractalShowCase } from './fractals/fractal-showcase.class.js'
 
-// WebGL Context
-import { gl } from './gl.js'
+const init = () => {
+  Welcome()
+  const showCase = new FractalShowCase()
+  showCase.setupLinks()
+}
 
-import { simpleShader, initSimpleProgram } from './shaders/simple-program'
-import { drawRectangle } from './draw-rectangle';
-
-// RENDERING
-resize(gl)
-clearCanvas()
-
-// Use the simple webgl shader program to draw the triangle.
-initSimpleProgram()
-
-const points = [
-  10, 10,
-  200, 10,
-  600, 800
-]
-
-drawTriangle(simpleShader, ...points)
-drawRectangle(simpleShader, 10, 10, 1000, 1000)
+window.onload = init

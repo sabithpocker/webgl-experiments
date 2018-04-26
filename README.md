@@ -3,7 +3,7 @@ Trying out webGL.
 
 ```sh
 npm install
-npm run
+npm start
 ```
 
 Based on [WebGL Fundamentals](https://webglfundamentals.org/webgl/lessons/webgl-fundamentals.html) website

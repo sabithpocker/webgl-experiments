@@ -15,6 +15,6 @@ export const vertexShaderSource = `
  
     gl_Position = vec4(clipSpace, 0, 1);
 
-    v_color = gl_Position * 0.5 + 0.5;
+    v_color = gl_Position / 0.5 * 1.0;
   }
   `

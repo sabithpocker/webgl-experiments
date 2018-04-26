@@ -4,17 +4,46 @@
 		<title>WebGL Experiments</title>
 		<style>
 			#display{
-				width: 100%;
+				flex-basis: auto;
 				height: 100%;
 			}
 			body{
 				margin: 0;
 				padding: 0;
 			}
+			section.container {
+				display: flex;
+			}
+			nav {
+				background-color: #efefef;
+				padding: 10px;
+				flex-basis: 100px;
+				flex-shrink: 0;
+			}
+			nav ul {
+				padding: 0;
+				margin: 0;
+			}
+			nav ul li {
+				list-style: none;
+				padding: 0;
+			}
+			nav ul li a {
+				text-decoration: none;
+				color: #242424;
+			}
 		</style>
 	</head>
 	<body>
-		<canvas id="display"/>
+		<section class="container">
+			<nav>
+				<ul>
+					<li><a href id="sierpinski">Sierpinski</a></li>
+					<li><a href id="kochcode">Koch Code</a></li>
+				</ul>
+			</nav>
+			<canvas id="display"/>
+		</section>
 	</body>
 	<script src="bundle.js"></script>	
 </html>
